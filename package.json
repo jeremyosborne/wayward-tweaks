@@ -1,0 +1,26 @@
+{
+  "name": "wayward-tweaks",
+  "version": "0.0.1",
+  "description": "A grab bag of general changes to the base game.",
+  "author": "Jeremy Osborne <jeremywosborne@gmail.com>",
+  "main": "index.js",
+  "private": true,
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "@wayward/types": "^2.9.6-beta",
+    "eslint": "^7.16.0",
+    "typescript": "^4.1.3",
+    "asar": "^3.0.3",
+    "eslint-config-prettier": "^7.1.0",
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "deploy:dev": "npm run build && rsync -av --progress --exclude resources --exclude node_modules --exclude .git . ~/Library/Application\\ Support/Steam/steamapps/common/Wayward/mods/wayward-mod-learnings"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}

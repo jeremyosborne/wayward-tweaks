@@ -1,0 +1,13 @@
+{
+  "allowUnlockingMilestones": true,
+  "author": "Jeremy Osborne <jeremywosborne@gmail.com>",
+  "description": "A grab bag of general changes to the base game.",
+  "file": "out/Mod",
+  "languages": ["lang/english"],
+  "multiplayer": "compatible",
+  "name": "Wayward Tweaks",
+  "tags": ["Item"],
+  "unloadable": true,
+  "version": "0.0.1",
+  "waywardVersion": "2.9.6-beta"
+}
