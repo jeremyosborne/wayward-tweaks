@@ -1,7 +1,7 @@
 {
   "name": "wayward-tweaks",
   "version": "0.0.1",
-  "description": "A grab bag of general changes to the base game.",
+  "description": "See mod.json",
   "author": "Jeremy Osborne <jeremywosborne@gmail.com>",
   "private": true,
   "devDependencies": {
