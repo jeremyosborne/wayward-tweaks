@@ -24,8 +24,7 @@ Despite being educational, we will be testing out real content changes in this m
 ## Dev Notes
 
 - [Wayward mod API docs](https://waywardgame.github.io/index.html)
-- To deploy on a Mac with a Steam Wayward for development purposes: `npm run deploy:dev`
-- To extract resources into a `.gitignore`d location in this directory: `node_modules/.bin/asar extract ~/Library/Application\ Support/Steam/steamapps/common/Wayward/Wayward.app/Contents/Resources/app.asar resources`
+- Run `npm run deploy:dev:on-change` for local development and testing of mod.
 - File locations
     - MacOS, Steam
         - App: `~/Library/Application\ Support/Steam/steamapps/common/Wayward/Wayward.app/Contents/MacOS/Electron`

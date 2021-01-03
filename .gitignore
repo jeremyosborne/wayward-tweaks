@@ -1,3 +1,7 @@
 node_modules
+# TypeScript transpiled to JavaScript output.
 out
-resources
+# Local copy of Wayward game resources for reference.
+wayward-resources
+# Local copies of other mods for reference.
+wayward-mod-samples
