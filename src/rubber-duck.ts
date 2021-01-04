@@ -3,11 +3,32 @@
 //
 // Recommend importing as: `import * as rubberDuck from './rubber-duck'`
 //
-import { ItemType, ItemTypeGroup } from "item/IItem"
+import { ActionType } from "entity/action/IAction"
+import { IItemDescription, ItemType, ItemTypeGroup } from "item/IItem"
 import { itemDescriptions, itemGroupDescriptions } from "item/Items"
 import Log from "utilities/Log"
 
 const logger = new Log("rubber-duck")
+
+/**
+ * Find all edible items and dump out their JSON in an associative array.
+ */
+export const ediblesDump = (): void => {
+  const edibleItemDescriptions: Record<string, IItemDescription> = {}
+  for (const [itemTypeKey, itemDescription] of Object.entries(
+    itemDescriptions
+  )) {
+    if (itemDescription?.onUse?.[ActionType.Eat]) {
+      edibleItemDescriptions[
+        `${ItemType[(itemTypeKey as unknown) as number] || itemTypeKey}`
+      ] = itemDescription
+    }
+  }
+
+  logger.debug(
+    `edible items in game: ${JSON.stringify(edibleItemDescriptions)}`
+  )
+}
 
 /**
  * Make the item type group descriptions use human readable strings instead of

@@ -2,11 +2,11 @@
   "extends": "English",
   "dictionaries": {
     "doodad": {
-      "modWaywardModLearningsSmoker": [
+      "modWaywardTweaksSmoker": [
         "smoker",
         "A primitive yet effective food dehydrator."
       ],
-      "modWaywardModLearningsLitSmoker": [
+      "modWaywardTweaksLitSmoker": [
         "lit smoker",
         "A smoker ready to dehydrate and preserve food."
       ]
@@ -16,15 +16,15 @@
         "shredded meat, fried",
         "Fried meat cake. A filling and nutritious meal."
       ],
-      "modWaywardModLearningsShreddedMeatBoiled": [
+      "modWaywardTweaksShreddedMeatBoiled": [
         "shredded meat, boiled",
         "Boiled meat cake. A comforting, if soggy and bland meal."
       ],
-      "modWaywardModLearningsSmoker": [
+      "modWaywardTweaksSmoker": [
         "smoker",
         "A primitive yet effective food dehydrator."
       ],
-      "modWaywardModLearningsTwigBundle": [
+      "modWaywardTweaksTwigBundle": [
         "twig bundle",
         "A bunch of twigs portioned out as an efficient log replacement for fire stoking."
       ],
@@ -34,43 +34,7 @@
       ]
     },
     "message": {
-      "modWaywardModLearningsModWarningToPlayer": "Greetings, the Wayward Mod Learnings is active. Don't use this with a saved game you care about!"
-    },
-    "quest": {
-      "modWaywardModLearningsTutorialStart": [
-        "Wayward Mod Learnings Tutorial",
-        "{#--color-brown:This //tutorial// will walk you through what is included in this sample mod.}\n\nPress {Bindings:DialogQuests} to toggle this dialog.\n\nClick \"//Complete Quest//\" to start the tutorial."
-      ],
-
-      "modWaywardModLearningsTutorialShreddedMeatDried": [
-        "//Pemmican// is now //Shredded meat, dried//",
-        "Along with the name change, the stat modifications from eating this food have changed. When consumed as is, it acts more like an energy bar for your stamina. It also forms the basis for two meals."
-      ],
-
-      "modWaywardModLearningsTutorialShreddedMeatFried": [
-        "//Cooked pemmican// is now //Shredded meat, fried//",
-        "Along with the name change, the stat modifications from eating this food have changed. Consuming this will provide greater benefit to one's stats."
-      ],
-
-      "modWaywardModLearningsTutorialShreddedMeatBoiled": [
-        "New item: //Shredded meat, boiled//",
-        "An alternate, and simpler use for your piles of shredded meat, dried. Just add water and rehydrate."
-      ],
-
-      "modWaywardModLearningsTutorialTwigBundle": [
-        "New item: //Twig bundle//",
-        "Cordage plus a pile of twigs you probably have lying around equals a makeshift log guaranteed stoke a stone still flame to the right level to purify water."
-      ],
-
-      "modWaywardModLearningsTutorialSmoker": [
-        "New item & doodad: //Smoker//",
-        "Smoking, and dehydration, effectively preserve food. The smoker, while unimplemented in this mod, is a basis for building out additional food preservation recipes."
-      ],
-
-      "modWaywardModLearningsTutorialEnd": [
-        "Tutorial Complete!",
-        "That's everything included in this sample mod."
-      ]
+      "modWaywardTweaksModWarningToPlayer": "Greetings. The Wayward Tweaks mod is experimental. Don't use this with a saved game you care about!"
     }
   }
 }

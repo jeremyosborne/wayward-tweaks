@@ -2,11 +2,6 @@ import { DoodadType, DoodadTypeGroup } from "doodad/IDoodad"
 import { ActionType } from "entity/action/IAction"
 import { SkillType } from "entity/IHuman"
 import { MessageType } from "entity/player/IMessageManager"
-import Player from "entity/player/Player"
-import { QuestType } from "entity/player/quest/quest/IQuest"
-import { Quest } from "entity/player/quest/quest/Quest"
-import { QuestRequirementType } from "entity/player/quest/requirement/IRequirement"
-import { GameMode } from "game/options/IGameOptions"
 import {
   IItemDescription,
   ItemType,
@@ -20,20 +15,12 @@ import Mod from "mod/Mod"
 import Register, { Registry } from "mod/ModRegistry"
 import * as rubberDuck from "./rubber-duck"
 
-export default class WaywardModLearnings extends Mod {
-  static MOD_ID = "WayardModLearnings"
+export default class WaywardTweaks extends Mod {
+  static MOD_ID = "WaywardTweaks"
 
-  @Mod.instance<WaywardModLearnings>(WaywardModLearnings.MOD_ID)
-  public static readonly INSTANCE: WaywardModLearnings
+  @Mod.instance<WaywardTweaks>(WaywardTweaks.MOD_ID)
+  public static readonly INSTANCE: WaywardTweaks
 
-  // -- Content: add new: twig bundle
-  // Translations are keyed via the pseudo code template `mod${modName.removeSpaces().startCase()${item id}}`.
-  // Here the translation key would be `modWaywardModLearningsTwigBundle` and an English translation
-  // would be defined in the file `lang/english.json` at the key `dictionaries.item.modWaywardModLearningsTwigBundle`.
-  //
-  // Item images must be provided and named `${item id.lowerCase()}.png` for the 16x16 pixel inventory image, and
-  // `${item id.lowerCase()}_8.png` for the 8x8 item-on-the-ground image. Item images are stored in
-  // `static/image/item` and our images for this item are named `twigbundle.png` and `twigbundle_8.png`.
   @Register.item("TwigBundle", {
     disassemble: true,
     flammable: true,
@@ -67,13 +54,6 @@ export default class WaywardModLearnings extends Mod {
   public itemTwigBundle: ItemType
 
   // -- Content: add new: shredded meat, boiled
-  // Translations are keyed via the pseudo code template `mod${modName.removeSpaces().startCase()${item id}}`.
-  // Here the translation key would be `modWaywardModLearningsShreddedMeatBoiled` and an English translation
-  // would be defined in the file `lang/english.json` at the key `dictionaries.item.modWaywardModLearningsShreddedMeatBoiled`.
-  //
-  // Item images must be provided and named `${item id.lowerCase()}.png` for the 16x16 pixel inventory image, and
-  // `${item id.lowerCase()}_8.png` for the 8x8 item-on-the-ground image. Item images are stored in
-  // `static/image/item` and our images for this item are named `shreddedmeatboiled.png` and `shreddedmeatboiled_8.png`.
   @Register.item("ShreddedMeatBoiled", {
     // Based on cooked pemmican.
     use: [ActionType.Eat],
@@ -98,15 +78,7 @@ export default class WaywardModLearnings extends Mod {
   public itemShreddedMeatBoiled: ItemType
 
   // -- Content: add new: smoker
-  // Translations are keyed via the pseudo code template `mod${modName.removeSpaces().startCase()${item id}}`.
-  // Here the translation key would be `modWaywardModLearningsSmoker` and an English translation
-  // would be defined in the file `lang/english.json` at the key `dictionaries.item.modWaywardModLearningsSmoker`.
-  //
-  // Item images must be provided and named `${item id.lowerCase()}.png` for the 16x16 pixel inventory image, and
-  // `${item id.lowerCase()}_8.png` for the 8x8 item-on-the-ground image. Item images are stored in
-  // `static/image/item` and our images for this item are named `smoker.png` and `smoker_8.png`.
-  //
-  // This particular item can be `built` into a structure, defined as a `doodad` below.
+  // See also: smoker doodads
   @Register.item("Smoker", {
     use: [ActionType.Build],
     recipe: {
@@ -127,14 +99,13 @@ export default class WaywardModLearnings extends Mod {
   public itemSmoker: ItemType
 
   // -- Content: add new: smoker
-  // Doodads define buildable structures. Translation and images follow the same convention as items, except
-  // with `doodad` in the overall namespace.
+  // see also: smoker item
   @Register.doodad("Smoker", {
-    pickUp: [Registry<WaywardModLearnings>().get("itemSmoker")],
+    pickUp: [Registry<WaywardTweaks>().get("itemSmoker")],
     blockMove: true,
     canBreak: true,
-    lit: Registry<WaywardModLearnings>().get("doodadLitSmoker"),
-    repairItem: Registry<WaywardModLearnings>().get("itemSmoker"),
+    lit: Registry<WaywardTweaks>().get("doodadLitSmoker"),
+    repairItem: Registry<WaywardTweaks>().get("itemSmoker"),
     particles: { r: 130, g: 128, b: 128 },
     reduceDurabilityOnGather: true,
     isTall: true,
@@ -142,17 +113,16 @@ export default class WaywardModLearnings extends Mod {
   public doodadSmoker: DoodadType
 
   // -- Content: add new: smoker
-  // Since the smoker doodad and be lit, we need to provide a lit version of the doodad along with an
-  // image with the various stages of fire intensity.
+  // see also: smoker item
   @Register.doodad("LitSmoker", {
     decayMax: 250,
     providesFire: true,
     providesLight: 1,
     blockMove: true,
     canBreak: true,
-    revert: Registry<WaywardModLearnings>().get("doodadSmoker"),
+    revert: Registry<WaywardTweaks>().get("doodadSmoker"),
     isAnimated: true,
-    repairItem: Registry<WaywardModLearnings>().get("itemSmoker"),
+    repairItem: Registry<WaywardTweaks>().get("itemSmoker"),
     particles: { r: 130, g: 128, b: 128 },
     group: [DoodadTypeGroup.FireSource, DoodadTypeGroup.LitStructure],
     tier: {
@@ -164,11 +134,6 @@ export default class WaywardModLearnings extends Mod {
 
   // -- Content: modify existing
   // Item description modifications that will be shallow merged into existing item descriptions.
-  //
-  // The visual names for `Pemmican` and `CookedPemmican` are changed in the
-  // `lang/english.json` file, at the keys:
-  // - `dictionaries.item.pemmican`
-  // - `dictionaries.item.cookedPemmican`
   itemDescriptionsToModify: Record<string, IItemDescription> = {
     [ItemType.Pemmican]: {
       onUse: {
@@ -177,7 +142,7 @@ export default class WaywardModLearnings extends Mod {
     },
     [ItemType.CookedPemmican]: {
       onUse: {
-        [ActionType.Eat]: [1, 24, 12, 0], // modified from: [2, 12, 6, -1]
+        [ActionType.Eat]: [1, 24, 10, 0], // modified from: [2, 12, 6, -1]
       },
     },
   }
@@ -186,18 +151,7 @@ export default class WaywardModLearnings extends Mod {
 
   @Override
   onInitialize(): void {
-    // -- Content: add new: twig bundle
-    // Some debug code I used to inspect loaded structures.
-    rubberDuck.itemTypeGroup.summarize("Kindling")
-    rubberDuck.itemTypeGroup.details("Kindling")
-    const stokeFireValue =
-      // There are many globals available in this game, discoverable at `https://waywardgame.github.io/globals.html`
-      itemDescriptions[ItemType.Twigs].onUse?.[ActionType.StokeFire]
-    // Log messages are automagically prefixed with our mod name and the function works similar to `console.log`.
-    this.getLog().debug(
-      "\n\nDEBUG: Stoke fire value for twigs is:",
-      stokeFireValue
-    )
+    rubberDuck.ediblesDump()
 
     // -- Content: modify existing
     // Depending on what other mods are running, we can't guarantee that something else didn't
@@ -263,113 +217,5 @@ export default class WaywardModLearnings extends Mod {
     localPlayer.messages
       .type(MessageType.Bad)
       .send(this.messageModWarningToPlayer)
-  }
-
-  // -- Content: tutorial quest
-  // Each node of the overall quest is defined as a quest type, and then linked to the
-  // next stage of the quest.
-  @Register.quest(
-    "TutorialStart",
-    new Quest().setNeedsManualCompletion().addChildQuests(
-      // Conventional way to retrieve a reference to something on our own mod.
-      Registry<WaywardModLearnings>().get("questTutorialShreddedMeatDried")
-    )
-  )
-  public questTutorialStart: QuestType
-
-  @Register.quest(
-    "TutorialShreddedMeatDried",
-    new Quest()
-      .addRequirement(QuestRequirementType.Craft, [ItemType.Pemmican], 1)
-      .addChildQuests(
-        Registry<WaywardModLearnings>().get("questTutorialShreddedMeatFried")
-      )
-  )
-  public questTutorialShreddedMeatDried: QuestType
-
-  @Register.quest(
-    "TutorialShreddedMeatFried",
-    new Quest()
-      .addRequirement(QuestRequirementType.Craft, [ItemType.CookedPemmican], 1)
-      .addChildQuests(
-        Registry<WaywardModLearnings>().get("questTutorialShreddedMeatBoiled")
-      )
-  )
-  public questTutorialShreddedMeatFried: QuestType
-
-  @Register.quest(
-    "TutorialShreddedMeatBoiled",
-    new Quest()
-      .addRequirement(
-        QuestRequirementType.Craft,
-        [Registry<WaywardModLearnings>().get("itemShreddedMeatBoiled")],
-        1
-      )
-      .addChildQuests(
-        Registry<WaywardModLearnings>().get("questTutorialTwigBundle")
-      )
-  )
-  public questTutorialShreddedMeatBoiled: QuestType
-
-  @Register.quest(
-    "TutorialTwigBundle",
-    new Quest()
-      .addRequirement(
-        QuestRequirementType.Craft,
-        [Registry<WaywardModLearnings>().get("itemTwigBundle")],
-        1
-      )
-      .addChildQuests(
-        Registry<WaywardModLearnings>().get("questTutorialSmoker")
-      )
-  )
-  public questTutorialTwigBundle: QuestType
-
-  @Register.quest(
-    "TutorialSmoker",
-    new Quest()
-      .addRequirement(
-        QuestRequirementType.Craft,
-        [Registry<WaywardModLearnings>().get("itemSmoker")],
-        1
-      )
-      .addChildQuests(Registry<WaywardModLearnings>().get("questTutorialEnd"))
-  )
-  public questTutorialSmoker: QuestType
-
-  @Register.quest("TutorialEnd", new Quest().setNeedsManualCompletion())
-  public questTutorialEnd: QuestType
-
-  @HookMethod
-  @Override
-  public onPlayerJoin(player: Player): void {
-    // -- Content: tutorial quest
-    // Needed to apply quest to players in multiplayer.
-    this.addQuestTutorial(player)
-  }
-
-  @HookMethod
-  @Override
-  public onGameStart(isLoadingSave: boolean, playedCount: number): void {
-    if (!multiplayer.isConnected() || !multiplayer.isClient()) {
-      // -- Content: tutorial quest
-      // Needed to apply quest to player in a single player game.
-      this.addQuestTutorial()
-    }
-  }
-
-  private addQuestTutorial(player: Player = localPlayer) {
-    // -- Content: tutorial quest
-    // DEBUG: docs say `Removes all quests & disposes of any quest requirement trigger`, but I don't see an easier
-    // way to remove and restart our quest for testing.
-    // player.quests.reset()
-    if (
-      game.getGameMode() !== GameMode.Challenge &&
-      player.quests
-        .getQuests()
-        .every((quest) => quest.data.type !== this.questTutorialStart)
-    ) {
-      player.quests.add(this.questTutorialStart)
-    }
   }
 }
