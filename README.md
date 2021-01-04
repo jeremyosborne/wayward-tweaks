@@ -32,3 +32,8 @@ Despite being educational, we will be testing out real content changes in this m
             - Logs will do rotate with newest log being most recently numbered.
         - Mods, local: `~/Library/Application\ Support/Steam/steamapps/common/Wayward/mods/`
         - Mods, steam: `~/Library/Application\ Support/Steam/steamapps/common/Wayward/workshop/mods`
+
+## TODO
+
+- Use the sharkfin for something. Sharkfin soup?
+
