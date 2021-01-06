@@ -3,21 +3,41 @@
 //
 // Recommend importing as: `import * as rubberDuck from './rubber-duck'`
 //
-import { SkillType } from "entity/IHuman"
+import { DoodadType, DoodadTypeGroup } from "doodad/IDoodad"
 import { ActionType } from "entity/action/IAction"
+import { CreatureType, TileGroup } from "entity/creature/ICreature"
+import { DamageType, StatusType } from "entity/IEntity"
+import { SkillType } from "entity/IHuman"
 import { BiomeType } from "game/IBiome"
-import { IItemDescription, ItemType, ItemTypeGroup } from "item/IItem"
+import {
+  EquipEffect,
+  IItemDescription,
+  ItemType,
+  ItemTypeGroup,
+} from "item/IItem"
 import { itemDescriptions, itemGroupDescriptions } from "item/Items"
 import Log from "utilities/Log"
 
 const logger = new Log("rubber-duck")
 
 // Because humans can reason about strings better than numbers.
-const toActionType = (actionType: ActionType) =>
-  ActionType[actionType] || actionType
+const toActionType = (actionType?: ActionType) =>
+  actionType && (ActionType[actionType] || actionType)
+const toBiomeType = (biomeType?: BiomeType) =>
+  biomeType && (BiomeType[biomeType] || biomeType)
+const toCreatureType = (creatureType?: CreatureType) =>
+  creatureType && (CreatureType[creatureType] || creatureType)
+const toDoodadTypeOrGroup = (doodadType?: DoodadType) =>
+  doodadType &&
+  (DoodadType[doodadType] || DoodadTypeGroup[doodadType] || doodadType)
 /** ItemGroups are offset and can't collide with ItemType enumerations, otherwise recipe components would break. */
-const toItemTypeOrGroup = (itemType: ItemType | ItemTypeGroup) =>
-  ItemType[itemType] || itemType
+const toItemTypeOrGroup = (itemType?: ItemType | ItemTypeGroup) =>
+  itemType && (ItemType[itemType] || ItemTypeGroup[itemType] || itemType)
+const toSkillType = (skillType?: SkillType) =>
+  skillType && (SkillType[skillType] || skillType)
+const toStatusType = (statusType?: StatusType) =>
+  statusType && (StatusType[statusType] || statusType)
+const toTileGroup = (t?: TileGroup) => t && (TileGroup[t] || t)
 
 /**
  * Serialize the itemDescriptions in a more human friendly way and send to the logs.
@@ -33,36 +53,64 @@ export const itemDescriptionsDump = (): void => {
         `${ItemType[(itemTypeKey as unknown) as number] || itemTypeKey}`
       ] = {
         ...itemDescription,
-        decaysInto: itemDescription.decaysInto?.map(
-          (itemType) => ItemType[itemType] || itemType
-        ),
-        dismantle: itemDescription.dismantle
-          ? {
-              ...itemDescription.dismantle,
-              items: itemDescription.dismantle.items.map((dismantleItem) => ({
-                ...dismantleItem,
-                type: ItemType[dismantleItem.type],
-              })),
-              required: itemDescription.dismantle.required
-                ? ItemTypeGroup[itemDescription.dismantle.required]
-                : itemDescription.dismantle.required,
-              skill: itemDescription.dismantle.skill
-                ? SkillType[itemDescription.dismantle.skill]
-                : itemDescription.dismantle.skill,
-            }
-          : undefined,
+        burnsLike: itemDescription.burnsLike?.map(toItemTypeOrGroup),
+        canCureStatus: itemDescription.canCureStatus?.map(toStatusType),
+        damageOnUse:
+          itemDescription.damageOnUse &&
+          Object.keys(itemDescription.damageOnUse).reduce(
+            (accumulator: Record<string, unknown>, actionType) => {
+              const actionEnum = (actionType as unknown) as number
+              accumulator[ActionType[actionEnum]] =
+                itemDescription.damageOnUse?.[actionEnum]
+              return accumulator
+            },
+            {}
+          ),
+        damageType:
+          itemDescription.damageType && DamageType[itemDescription.damageType],
+        decaysInto: itemDescription.decaysInto?.map(toItemTypeOrGroup),
+        dismantle: itemDescription.dismantle && {
+          ...itemDescription.dismantle,
+          items: itemDescription.dismantle.items.map((dismantleItem) => ({
+            ...dismantleItem,
+            type: ItemType[dismantleItem.type],
+          })),
+          required: toItemTypeOrGroup(itemDescription.dismantle.required),
+          skill: toSkillType(itemDescription.dismantle.skill),
+        },
+        doodadContainer: toDoodadTypeOrGroup(itemDescription.doodadContainer),
+        equipEffect: itemDescription.equipEffect && [
+          EquipEffect[itemDescription.equipEffect[0]],
+          itemDescription.equipEffect[1],
+        ],
+        gather: itemDescription.gather && {
+          ...Object.keys(itemDescription.gather).reduce(
+            (accumulator: Record<string, unknown>, key) => {
+              const gather = (itemDescription.gather as unknown) as Record<
+                string,
+                ItemType
+              >
+              // keys are plain strings not enums
+              accumulator[key] = toItemTypeOrGroup(gather[key])
+              return accumulator
+            },
+            {}
+          ),
+        },
+        lit: toItemTypeOrGroup(itemDescription.lit),
         onBurn: itemDescription.onBurn?.map(toItemTypeOrGroup),
-        onUse: itemDescription.onUse
-          ? Object.keys(itemDescription.onUse).reduce(
-              (accumulator: Record<string, unknown>, actionType) => {
-                const actionEnum = (actionType as unknown) as number
-                accumulator[ActionType[actionEnum]] =
-                  itemDescription.onUse?.[actionEnum]
-                return accumulator
-              },
-              {}
-            )
-          : undefined,
+        onUse:
+          itemDescription.onUse &&
+          Object.keys(itemDescription.onUse).reduce(
+            (accumulator: Record<string, unknown>, actionType) => {
+              const actionEnum = (actionType as unknown) as number
+              accumulator[ActionType[actionEnum]] =
+                itemDescription.onUse?.[actionEnum]
+              return accumulator
+            },
+            {}
+          ),
+        placeDownType: toDoodadTypeOrGroup(itemDescription.placeDownType),
         recipe: itemDescription.recipe && {
           ...itemDescription.recipe,
           components: itemDescription.recipe.components.map((component) => {
@@ -71,14 +119,21 @@ export const itemDescriptionsDump = (): void => {
               type: toItemTypeOrGroup(component.type),
             }
           }),
-          skill: SkillType[itemDescription.recipe.skill],
+          skill: toSkillType(itemDescription.recipe.skill),
         },
-        skillUse: itemDescription.skillUse
-          ? SkillType[itemDescription.skillUse]
-          : itemDescription.skillUse,
-        spawnOnMerchant: itemDescription.spawnOnMerchant?.map(
-          (biomeType) => BiomeType[biomeType] || biomeType
+        requiredForDisassembly: itemDescription.requiredForDisassembly?.map(
+          toItemTypeOrGroup
         ),
+        returnOnUseAndDecay: itemDescription.returnOnUseAndDecay && {
+          ...itemDescription.returnOnUseAndDecay,
+          type: toItemTypeOrGroup(itemDescription.returnOnUseAndDecay.type),
+        },
+        revert: toItemTypeOrGroup(itemDescription.revert),
+        skillUse: toSkillType(itemDescription.skillUse),
+        spawnableTiles: toTileGroup(itemDescription.spawnableTiles),
+        spawnOnBreak: toCreatureType(itemDescription.spawnOnBreak),
+        spawnOnDecay: toCreatureType(itemDescription.spawnOnDecay),
+        spawnOnMerchant: itemDescription.spawnOnMerchant?.map(toBiomeType),
         tier: itemDescription.tier && {
           ...Object.keys(itemDescription.tier).reduce(
             (accumulator: Record<string, unknown>, itemTypeGroup) => {
