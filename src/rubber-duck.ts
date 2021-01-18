@@ -4,6 +4,7 @@
 // Recommend importing as: `import * as rubberDuck from './rubber-duck'`
 //
 import { DoodadType, DoodadTypeGroup } from "doodad/IDoodad"
+import { doodadDescriptions } from "doodad/Doodads"
 import { ActionType } from "entity/action/IAction"
 import { CreatureType, TileGroup } from "entity/creature/ICreature"
 import { DamageType, StatusType } from "entity/IEntity"
@@ -16,6 +17,7 @@ import {
   ItemTypeGroup,
 } from "item/IItem"
 import { itemDescriptions, itemGroupDescriptions } from "item/Items"
+import { TerrainType } from "tile/ITerrain"
 import Log from "utilities/Log"
 
 const logger = new Log("rubber-duck")
@@ -38,6 +40,99 @@ const toSkillType = (skillType?: SkillType) =>
 const toStatusType = (statusType?: StatusType) =>
   statusType && (StatusType[statusType] || statusType)
 const toTileGroup = (t?: TileGroup) => t && (TileGroup[t] || t)
+const toTerrainType = (t?: TerrainType) => t && (TerrainType[t] || t)
+
+/**
+ * Serialize the itemDescriptions in a more human friendly way and send to the logs.
+ */
+export const doodadDescriptionsDump = (): void => {
+  // Deviate from the types to make things human readable.
+  const doodadDescriptionsDictionary: Record<string, unknown> = {}
+  for (const [doodadTypeKey, doodadDescription] of Object.entries(
+    doodadDescriptions
+  )) {
+    if (doodadDescription) {
+      doodadDescriptionsDictionary[
+        `${DoodadType[(doodadTypeKey as unknown) as number] || doodadTypeKey}`
+      ] = {
+        ...doodadDescription,
+        actionTypes: doodadDescription.actionTypes?.map(toActionType),
+        allowedTiles: doodadDescription.allowedTiles?.map(toTerrainType),
+        burnsLike: doodadDescription.burnsLike?.map(toItemTypeOrGroup),
+        gather: doodadDescription.gather && {
+          ...Object.keys(doodadDescription.gather).reduce(
+            (accumulator: Record<string, unknown>, key) => {
+              const gather = (doodadDescription.gather as unknown) as Record<
+                string,
+                ItemType
+              >
+              // keys are plain strings not enums
+              accumulator[key] = toItemTypeOrGroup(gather[key])
+              return accumulator
+            },
+            {}
+          ),
+        },
+        gatherSkillUse: toSkillType(doodadDescription.gatherSkillUse),
+        // lit: toItemTypeOrGroup(doodadDescription.lit),
+        // onBurn: doodadDescription.onBurn?.map(toItemTypeOrGroup),
+        // onUse:
+        //   doodadDescription.onUse &&
+        //   Object.keys(doodadDescription.onUse).reduce(
+        //     (accumulator: Record<string, unknown>, actionType) => {
+        //       const actionEnum = (actionType as unknown) as number
+        //       accumulator[ActionType[actionEnum]] =
+        //         doodadDescription.onUse?.[actionEnum]
+        //       return accumulator
+        //     },
+        //     {}
+        //   ),
+        // placeDownType: toDoodadTypeOrGroup(doodadDescription.placeDownType),
+        // recipe: doodadDescription.recipe && {
+        //   ...doodadDescription.recipe,
+        //   components: doodadDescription.recipe.components.map((component) => {
+        //     return {
+        //       ...component,
+        //       type: toItemTypeOrGroup(component.type),
+        //     }
+        //   }),
+        //   skill: toSkillType(doodadDescription.recipe.skill),
+        // },
+        // requiredForDisassembly: doodadDescription.requiredForDisassembly?.map(
+        //   toItemTypeOrGroup
+        // ),
+        // returnOnUseAndDecay: doodadDescription.returnOnUseAndDecay && {
+        //   ...doodadDescription.returnOnUseAndDecay,
+        //   type: toItemTypeOrGroup(doodadDescription.returnOnUseAndDecay.type),
+        // },
+        // revert: toItemTypeOrGroup(doodadDescription.revert),
+        // skillUse: toSkillType(doodadDescription.skillUse),
+        // spawnableTiles: toTileGroup(doodadDescription.spawnableTiles),
+        // spawnOnBreak: toCreatureType(doodadDescription.spawnOnBreak),
+        // spawnOnDecay: toCreatureType(doodadDescription.spawnOnDecay),
+        // spawnOnMerchant: doodadDescription.spawnOnMerchant?.map(toBiomeType),
+        // tier: doodadDescription.tier && {
+        //   ...Object.keys(doodadDescription.tier).reduce(
+        //     (accumulator: Record<string, unknown>, itemTypeGroup) => {
+        //       const itemTypeGroupEnum = (itemTypeGroup as unknown) as number
+        //       accumulator[ItemTypeGroup[itemTypeGroupEnum]] =
+        //         doodadDescription.tier?.[itemTypeGroupEnum]
+        //       return accumulator
+        //     },
+        //     {}
+        //   ),
+        // },
+        // use: doodadDescription.use?.map(toActionType),
+      }
+    }
+  }
+
+  logger.debug(
+    `itemDescriptions, humanized: ${JSON.stringify(
+      doodadDescriptionsDictionary
+    )}`
+  )
+}
 
 /**
  * Serialize the itemDescriptions in a more human friendly way and send to the logs.
