@@ -152,6 +152,7 @@ export default class WaywardTweaks extends Mod {
   @Override
   onInitialize(): void {
     rubberDuck.itemDescriptionsDump()
+    rubberDuck.doodadDescriptionsDump()
 
     // -- Content: modify existing
     // Depending on what other mods are running, we can't guarantee that something else didn't

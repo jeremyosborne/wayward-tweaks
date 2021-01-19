@@ -1,0 +1,1942 @@
+{
+  "WoodenDoor": {
+    "pickUp": ["WoodenDoor"],
+    "blockMove": true,
+    "canBreak": true,
+    "isFlammable": true,
+    "blockJump": true,
+    "repairItem": "WoodenDoor",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "disableDrop": true,
+    "isClosedDoor": true,
+    "isDoor": true,
+    "burnsLike": ["WoodenDoor"]
+  },
+  "WoodenFence": {
+    "pickUp": ["WoodenFence"],
+    "blockMove": true,
+    "canBreak": true,
+    "isFlammable": true,
+    "repairItem": "WoodenFence",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "isFence": true,
+    "burnsLike": ["WoodenFence"]
+  },
+  "WoodenWall": {
+    "pickUp": ["WoodenWall"],
+    "blockMove": true,
+    "canBreak": true,
+    "blockJump": true,
+    "isFlammable": true,
+    "repairItem": "WoodenWall",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "disableDrop": true,
+    "isWall": true,
+    "burnsLike": ["WoodenWall"]
+  },
+  "ClayWall": {
+    "pickUp": ["ClayWall"],
+    "blockMove": true,
+    "canBreak": true,
+    "blockJump": true,
+    "repairItem": "ClayWall",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "reduceDurabilityOnGather": true,
+    "disableDrop": true,
+    "isWall": true
+  },
+  "SandstoneWall": {
+    "pickUp": ["SandstoneWall"],
+    "blockMove": true,
+    "canBreak": true,
+    "blockJump": true,
+    "repairItem": "SandstoneWall",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "disableDrop": true,
+    "isWall": true
+  },
+  "StoneWall": {
+    "pickUp": ["StoneWall"],
+    "blockMove": true,
+    "canBreak": true,
+    "blockJump": true,
+    "repairItem": "StoneWall",
+    "particles": { "r": 130, "g": 128, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "disableDrop": true,
+    "isWall": true
+  },
+  "SetExplosiveTrap": {
+    "skillUse": 25,
+    "pickUp": ["ExplosiveTrap"],
+    "isTrap": true,
+    "particles": { "r": 85, "g": 168, "b": 41 },
+    "reduceDurabilityOnGather": true,
+    "trapDamage": 8,
+    "disableDrop": true
+  },
+  "SetDeadfall": {
+    "skillUse": 25,
+    "pickUp": ["Deadfall"],
+    "isTrap": true,
+    "isFlammable": true,
+    "repairItem": "Deadfall",
+    "particles": { "r": 105, "g": 103, "b": 103 },
+    "reduceDurabilityOnGather": true,
+    "trapDamage": 6,
+    "burnsLike": ["Deadfall"]
+  },
+  "SetSnare": {
+    "skillUse": 25,
+    "pickUp": ["Snare"],
+    "isTrap": true,
+    "isFlammable": true,
+    "repairItem": "Snare",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "trapDamage": 5,
+    "burnsLike": ["Snare"]
+  },
+  "SetHobgoblinSnare": {
+    "pickUp": ["Snare"],
+    "isTrap": true,
+    "isFlammable": true,
+    "repairItem": "Snare",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "trapDamage": 6,
+    "burnsLike": ["Snare"],
+    "spawnOnWorldGen": {
+      "1": { "0": { "19": 5, "24": 5 } },
+      "3": { "0": { "34": 3, "36": 3 } }
+    }
+  },
+  "SolarStill": {
+    "decayMax": 250,
+    "pickUp": ["SolarStill"],
+    "isWaterSource": true,
+    "particles": { "r": 206, "g": 208, "b": 210 },
+    "reduceDurabilityOnGather": true
+  },
+  "WoodenChest": {
+    "pickUp": ["WoodenChest"],
+    "weightCapacity": 75,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "WoodenChest",
+    "isFlammable": true,
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "burnsLike": ["WoodenChest"],
+    "preservationChance": 0.2,
+    "isTall": true,
+    "spawnOnWorldGen": {
+      "1": { "0": { "19": 5, "24": 5 }, "1": { "19": 1, "24": 1 } },
+      "3": { "1": { "21": 1, "25": 1 } }
+    }
+  },
+  "LockedWoodenChest": {
+    "pickUp": ["WoodenChest"],
+    "blockMove": true,
+    "canBreak": true,
+    "isFlammable": true,
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "burnsLike": ["WoodenChest"],
+    "durability": 25,
+    "isTall": true,
+    "spawnOnWorldGen": {
+      "1": {
+        "0": { "7": 5, "8": 5, "19": 5, "24": 5, "35": 5 },
+        "1": { "19": 1, "24": 1 }
+      },
+      "2": { "0": { "8": 5, "35": 5 } },
+      "3": { "0": { "7": 3, "34": 3, "36": 3 }, "1": { "21": 1, "25": 1 } }
+    },
+    "group": ["LockedChest"],
+    "lockedChest": {
+      "unlockedDoodadType": 11,
+      "lootGroups": [0, 1, 4, 4],
+      "lootQuality": 100
+    }
+  },
+  "CreatureIdol": {
+    "pickUp": ["CreatureIdol"],
+    "blockMove": true,
+    "canBreak": true,
+    "isFlammable": true,
+    "particles": { "r": 202, "g": 91, "b": 91 },
+    "reduceDurabilityOnGather": true,
+    "burnsLike": ["CreatureIdol"]
+  },
+  "Grass": {
+    "spreadMax": 20,
+    "skillUse": 5,
+    "gather": {
+      "Flowering": [{ "type": "BladesOfGrass" }],
+      "Ripening": [
+        { "type": "BladesOfGrass" },
+        { "type": "GrassSeeds", "chance": 10 }
+      ]
+    },
+    "allowedTiles": ["Dirt", "FertileSoil"],
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 85, "g": 143, "b": 44 },
+    "canGrow": true,
+    "decayMax": 1750,
+    "durability": 5,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "Clematis": {
+    "spreadMax": 5,
+    "gather": {
+      "Budding": [{ "type": "ClematisVine" }],
+      "Flowering": [
+        { "type": "ClematisVine", "chance": 15 },
+        { "type": "ClematisVine" }
+      ]
+    },
+    "harvest": { "Ripening": [{ "type": "ClematisSeeds" }] },
+    "group": ["GatheredPlant"],
+    "skillUse": 5,
+    "allowedTiles": ["Swamp", "Dirt", "FertileSoil", "Grass"],
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 86, "g": 135, "b": 8 },
+    "canGrow": true,
+    "decayMax": 2200,
+    "durability": 8,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "11": 1 } } }
+  },
+  "MilkThistles": {
+    "spreadMax": 4,
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "PlantRoots" }]
+    },
+    "harvest": {
+      "Flowering": [{ "type": "MilkThistleFlowers" }],
+      "Ripening": [
+        { "type": "MilkThistleSeeds" },
+        { "type": "MilkThistleFlowers", "chance": 5 },
+        { "type": "MilkThistleFlowers" }
+      ]
+    },
+    "skillUse": 5,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "canTrampleWhenMature": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 121, "g": 166, "b": 109 },
+    "canGrow": true,
+    "decayMax": 2600,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "ButtonMushrooms": {
+    "spreadMax": 3,
+    "gather": {
+      "Flowering": [
+        { "type": "ButtonMushrooms", "chance": 15 },
+        { "type": "ButtonMushrooms" }
+      ],
+      "Ripening": [{ "type": "ButtonMushrooms" }, { "type": "ButtonMushrooms" }]
+    },
+    "skillUse": 17,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass", "WoodenFlooring"],
+    "canTrampleWhenMature": true,
+    "canGrowInCaves": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 243, "g": 219, "b": 202 },
+    "canGrow": true,
+    "decayMax": 2000,
+    "isFungi": true,
+    "durability": 6,
+    "spawnOnWorldGen": {
+      "1": { "0": { "8": 2, "24": 1 }, "1": { "6": 2, "8": 2, "24": 1 } }
+    }
+  },
+  "FlyAmanita": {
+    "spreadMax": 3,
+    "gather": {
+      "Flowering": [{ "type": "FlyAmanita" }],
+      "Ripening": [{ "type": "FlyAmanita" }]
+    },
+    "skillUse": 17,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass", "WoodenFlooring"],
+    "canTrampleWhenMature": true,
+    "canGrowInCaves": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 202, "g": 16, "b": 16 },
+    "canGrow": true,
+    "decayMax": 2000,
+    "isFungi": true,
+    "durability": 6,
+    "spawnOnWorldGen": {
+      "1": { "0": { "8": 2, "24": 1 }, "1": { "6": 2, "8": 1, "24": 1 } }
+    }
+  },
+  "Switchgrass": {
+    "spreadMax": 20,
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "PlantRoots" }],
+      "Flowering": [{ "type": "BundleOfSwitchgrass" }, { "type": "PlantRoots" }]
+    },
+    "harvest": {
+      "Ripening": [
+        { "type": "BundleOfSwitchgrass", "chance": 5 },
+        { "type": "BundleOfSwitchgrass" }
+      ]
+    },
+    "skillUse": 5,
+    "allowedTiles": ["Dirt", "Gravel", "FertileSoil", "Grass"],
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 158, "g": 218, "b": 65 },
+    "canGrow": true,
+    "decayMax": 2500,
+    "durability": 6,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "6": 1 } } }
+  },
+  "Badderlocks": {
+    "allowedTiles": ["Seawater"],
+    "graphicVariation": true,
+    "particles": { "r": 0, "g": 52, "b": 39 },
+    "pickUp": ["Badderlocks"],
+    "skillUse": 5,
+    "spreadMax": 3,
+    "spawnOnWorldGen": {
+      "1": { "1": { "1": 1, "2": 1 } },
+      "3": { "1": { "1": 1, "2": 1 } }
+    }
+  },
+  "Chives": {
+    "gather": {
+      "Budding": [{ "type": "Chives" }],
+      "Flowering": [{ "type": "Chives", "chance": 5 }, { "type": "Chives" }]
+    },
+    "harvest": { "Ripening": [{ "type": "ChiveSeeds" }] },
+    "group": ["GatheredPlant"],
+    "skillUse": 5,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "spreadMax": 2,
+    "canTrampleWhenMature": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 99, "g": 166, "b": 3 },
+    "canGrow": true,
+    "decayMax": 2800,
+    "durability": 6,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "Pineapple": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "PlantRoots" }],
+      "Flowering": [{ "type": "PlantRoots" }]
+    },
+    "harvest": { "Ripening": [{ "type": "Pineapple" }] },
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 1,
+    "allowedTiles": [
+      "BeachSand",
+      "DesertSand",
+      "Gravel",
+      "Dirt",
+      "FertileSoil",
+      "Grass"
+    ],
+    "graphicVariation": true,
+    "particles": { "r": 139, "g": 182, "b": 75 },
+    "canGrow": true,
+    "decayMax": 4000,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": { "3": { "1": { "7": 1, "9": 1, "34": 1 } } }
+  },
+  "PileOfRocks": {
+    "graphicVariation": true,
+    "particles": { "r": 109, "g": 109, "b": 109 },
+    "pickUp": ["LargeRock", "Stones"],
+    "gatherCanHurtHands": true,
+    "spawnOnWorldGen": {
+      "1": {
+        "0": { "7": 5, "8": 5, "35": 20 },
+        "1": { "6": 1, "8": 1, "9": 2 }
+      },
+      "2": { "0": { "8": 5 }, "1": { "8": 1 } }
+    }
+  },
+  "RaspberryBush": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "Leaves" }, { "type": "PlantRoots" }],
+      "Flowering": [{ "type": "Leaves" }, { "type": "PlantRoots" }]
+    },
+    "harvest": {
+      "Ripening": [
+        { "type": "Raspberries", "chance": 5 },
+        { "type": "Raspberries" }
+      ]
+    },
+    "skillUse": 5,
+    "spreadMax": 1,
+    "allowedTiles": ["Swamp", "Dirt", "FertileSoil", "Grass"],
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 111, "g": 169, "b": 52 },
+    "canGrow": true,
+    "decayMax": 3000,
+    "durability": 8,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1, "11": 1 } } }
+  },
+  "Beggarticks": {
+    "spreadMax": 4,
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "Beggarticks" }, { "type": "PlantRoots" }]
+    },
+    "harvest": {
+      "Flowering": [{ "type": "Beggarticks" }, { "type": "Beggarticks" }],
+      "Ripening": [
+        { "type": "BeggartickSeeds" },
+        { "type": "Beggarticks" },
+        { "type": "Beggarticks", "chance": 15 },
+        { "type": "Beggarticks" }
+      ]
+    },
+    "skillUse": 5,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "canTrampleWhenMature": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 245, "g": 210, "b": 17 },
+    "growthParticles": { "1": { "r": 187, "g": 213, "b": 81 } },
+    "canGrow": true,
+    "decayMax": 2600,
+    "durability": 6,
+    "spawnOnWorldGen": { "1": { "1": { "6": 1 } } }
+  },
+  "Cotton": {
+    "spreadMax": 3,
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "Leaves" }, { "type": "PlantRoots" }],
+      "Flowering": [{ "type": "Leaves" }, { "type": "PlantRoots" }],
+      "Ripening": [
+        { "type": "CottonSeeds" },
+        { "type": "Cotton" },
+        { "type": "Cotton", "chance": 5 },
+        { "type": "Leaves" },
+        { "type": "PlantRoots" }
+      ]
+    },
+    "skillUse": 5,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "canTrampleWhenMature": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 136, "g": 172, "b": 39 },
+    "growthParticles": { "5": { "r": 255, "g": 255, "b": 255 } },
+    "canGrow": true,
+    "decayMax": 2800,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "PricklyPears": {
+    "gather": {
+      "Budding": [{ "type": "CactusSpines" }, { "type": "Nopal" }],
+      "Flowering": [
+        { "type": "CactusSpines" },
+        { "type": "Nopal", "chance": 10 },
+        { "type": "Nopal" }
+      ]
+    },
+    "harvest": {
+      "Ripening": [
+        { "type": "PricklyPearFruit" },
+        { "type": "PricklyPearFruit" }
+      ]
+    },
+    "skillUse": 5,
+    "isFlammable": true,
+    "damage": 1,
+    "spreadMax": 1,
+    "allowedTiles": [
+      "BeachSand",
+      "DesertSand",
+      "Gravel",
+      "Dirt",
+      "FertileSoil"
+    ],
+    "graphicVariation": true,
+    "particles": { "r": 136, "g": 193, "b": 54 },
+    "canGrow": true,
+    "decayMax": 2800,
+    "gatherCanHurtHands": true,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": { "3": { "1": { "7": 1, "9": 1, "34": 1 } } }
+  },
+  "Tumbleweed": {
+    "spreadMax": 5,
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "Twigs" }, { "type": "PlantRoots" }],
+      "Flowering": [
+        { "type": "TumbleweedSeeds" },
+        { "type": "Twigs" },
+        { "type": "PlantRoots" }
+      ],
+      "Ripening": [
+        { "type": "TumbleweedSeeds" },
+        { "type": "Twigs" },
+        { "type": "Twigs", "chance": 10 },
+        { "type": "PlantRoots" }
+      ]
+    },
+    "skillUse": 5,
+    "allowedTiles": [
+      "BeachSand",
+      "DesertSand",
+      "Gravel",
+      "Dirt",
+      "FertileSoil"
+    ],
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 89, "g": 121, "b": 60 },
+    "canGrow": true,
+    "decayMax": 2200,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": {
+      "1": { "1": { "8": 1, "9": 3 } },
+      "3": { "1": { "7": 1, "9": 2, "34": 3 } }
+    }
+  },
+  "StoneWaterStill": {
+    "pickUp": ["StoneWaterStill"],
+    "lit": "LitStoneWaterStill",
+    "isWaterSource": true,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "StoneWaterStill",
+    "particles": { "r": 130, "g": 128, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true
+  },
+  "LitStoneWaterStill": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 2,
+    "revert": "StoneWaterStill",
+    "isAnimated": true,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "StoneWaterStill",
+    "particles": { "r": 130, "g": 128, "b": 128 },
+    "group": ["LitWaterStill", "FireSource", "LitStructure"],
+    "waterStill": true,
+    "tier": { "409": 1 },
+    "isTall": true
+  },
+  "StoneCampfire": {
+    "pickUp": ["StoneCampfire"],
+    "lit": "LitStoneCampfire",
+    "repairItem": "StoneCampfire",
+    "particles": { "r": 104, "g": 100, "b": 100 },
+    "reduceDurabilityOnGather": true,
+    "spawnOnWorldGen": {
+      "1": { "0": { "19": 5, "24": 5 }, "1": { "19": 1, "24": 1 } }
+    }
+  },
+  "LitStoneCampfire": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 3,
+    "revert": "StoneCampfire",
+    "isAnimated": true,
+    "repairItem": "StoneCampfire",
+    "particles": { "r": 104, "g": 100, "b": 100 },
+    "group": ["LitCampfire", "FireSource", "LitStructure"],
+    "tier": { "409": 1 }
+  },
+  "SandstoneKiln": {
+    "pickUp": ["SandstoneKiln"],
+    "blockMove": true,
+    "canBreak": true,
+    "lit": "LitSandstoneKiln",
+    "repairItem": "SandstoneKiln",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true,
+    "spawnOnWorldGen": { "3": { "1": { "21": 1 } } }
+  },
+  "LitSandstoneKiln": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 1,
+    "blockMove": true,
+    "canBreak": true,
+    "revert": "SandstoneKiln",
+    "isAnimated": true,
+    "repairItem": "SandstoneKiln",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "group": ["LitKiln", "FireSource", "LitStructure"],
+    "tier": { "403": 1, "409": 2 },
+    "isTall": true
+  },
+  "StoneFurnace": {
+    "pickUp": ["StoneFurnace"],
+    "blockMove": true,
+    "canBreak": true,
+    "lit": "LitStoneFurnace",
+    "repairItem": "StoneFurnace",
+    "particles": { "r": 104, "g": 100, "b": 100 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true,
+    "spawnOnWorldGen": {
+      "1": { "0": { "19": 3, "24": 3 }, "1": { "19": 1, "24": 1 } }
+    }
+  },
+  "LitStoneFurnace": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 1,
+    "blockMove": true,
+    "canBreak": true,
+    "revert": "StoneFurnace",
+    "isAnimated": true,
+    "repairItem": "StoneFurnace",
+    "particles": { "r": 104, "g": 100, "b": 100 },
+    "group": ["LitFurnace", "FireSource", "LitStructure"],
+    "tier": { "402": 1, "409": 2 },
+    "isTall": true
+  },
+  "PoleTorchStand": {
+    "pickUp": ["WoodenPole"],
+    "lit": "LitPoleTorchStand",
+    "repairItem": "WoodenPole",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "group": ["LightDevice"],
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "0": { "7": 5, "8": 5, "35": 5 } } }
+  },
+  "LitPoleTorchStand": {
+    "pickUp": ["LitPoleTorch"],
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 2,
+    "revert": "PoleTorchStand",
+    "isAnimated": true,
+    "repairItem": "LitPoleTorch",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "tier": { "409": 1 },
+    "group": ["FireSource", "LitTorch", "LightSource"],
+    "isTall": true
+  },
+  "StoneAnvil": {
+    "pickUp": ["StoneAnvil"],
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "StoneAnvil",
+    "particles": { "r": 104, "g": 100, "b": 100 },
+    "group": ["Anvil"],
+    "reduceDurabilityOnGather": true,
+    "tier": { "405": 1 },
+    "isTall": true
+  },
+  "CaveEntrance": { "particles": { "r": 111, "g": 76, "b": 31 } },
+  "WoodenDoorOpen": {
+    "pickUp": ["WoodenDoor"],
+    "isFlammable": true,
+    "repairItem": "WoodenDoor",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "isDoor": true,
+    "burnsLike": ["WoodenDoor"]
+  },
+  "WoodenGate": {
+    "pickUp": ["WoodenGate"],
+    "blockMove": true,
+    "canBreak": true,
+    "isFlammable": true,
+    "repairItem": "WoodenGate",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "disableDrop": true,
+    "isGate": true,
+    "burnsLike": ["WoodenGate"]
+  },
+  "WoodenGateOpen": {
+    "pickUp": ["WoodenGate"],
+    "isFlammable": true,
+    "repairItem": "WoodenGate",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "isGate": true,
+    "burnsLike": ["WoodenGate"]
+  },
+  "PoisonIvy": {
+    "spreadMax": 3,
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "PoisonIvyLeaves" }, { "type": "PlantRoots" }],
+      "Flowering": [
+        { "type": "PoisonIvyLeaves", "chance": 5 },
+        { "type": "PoisonIvyLeaves" },
+        { "type": "PlantRoots" }
+      ]
+    },
+    "harvest": { "Ripening": [{ "type": "PoisonIvySeeds" }] },
+    "group": ["GatheredPlant"],
+    "skillUse": 5,
+    "allowedTiles": ["Swamp", "Dirt", "FertileSoil", "Grass"],
+    "canTrampleWhenMature": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "causesStatus": [1],
+    "particles": { "r": 70, "g": 149, "b": 5 },
+    "canGrow": true,
+    "decayMax": 2600,
+    "durability": 7,
+    "spawnOnWorldGen": { "1": { "1": { "6": 2, "8": 1, "11": 2 } } }
+  },
+  "WroughtIronChest": {
+    "pickUp": ["WroughtIronChest"],
+    "weightCapacity": 100,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "WroughtIronChest",
+    "particles": { "r": 88, "g": 95, "b": 114 },
+    "reduceDurabilityOnGather": true,
+    "preservationChance": 0.3,
+    "isTall": true
+  },
+  "IronChest": {
+    "pickUp": ["IronChest"],
+    "weightCapacity": 125,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "IronChest",
+    "particles": { "r": 220, "g": 223, "b": 231 },
+    "reduceDurabilityOnGather": true,
+    "preservationChance": 0.4,
+    "isTall": true
+  },
+  "OrnateWoodenChest": {
+    "pickUp": ["OrnateWoodenChest"],
+    "weightCapacity": 100,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "OrnateWoodenChest",
+    "isFlammable": true,
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "burnsLike": ["WoodenChest"],
+    "preservationChance": 0.3,
+    "isTall": true
+  },
+  "SkeletalRemains": {
+    "particles": { "r": 255, "g": 255, "b": 253 },
+    "graphicVariation": true,
+    "isTall": true,
+    "spawnOnWorldGen": {
+      "1": {
+        "0": { "7": 5, "8": 12, "24": 5, "35": 5 },
+        "1": { "19": 1, "24": 1 }
+      },
+      "3": {
+        "0": { "7": 5, "34": 5, "36": 5 },
+        "1": { "6": 1, "21": 1, "25": 1 }
+      }
+    }
+  },
+  "ClayKiln": {
+    "pickUp": ["ClayKiln"],
+    "blockMove": true,
+    "canBreak": true,
+    "lit": "LitClayKiln",
+    "repairItem": "ClayKiln",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true,
+    "spawnOnWorldGen": { "3": { "1": { "25": 1 } } }
+  },
+  "LitClayKiln": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 1,
+    "blockMove": true,
+    "canBreak": true,
+    "revert": "ClayKiln",
+    "isAnimated": true,
+    "repairItem": "ClayKiln",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "group": ["LitKiln", "FireSource", "LitStructure"],
+    "tier": { "403": 2, "409": 2 },
+    "isTall": true
+  },
+  "ClayCampfire": {
+    "pickUp": ["ClayCampfire"],
+    "lit": "LitClayCampfire",
+    "repairItem": "ClayCampfire",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "reduceDurabilityOnGather": true,
+    "spawnOnWorldGen": { "3": { "1": { "25": 1 } } }
+  },
+  "LitClayCampfire": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 3,
+    "revert": "ClayCampfire",
+    "isAnimated": true,
+    "repairItem": "ClayCampfire",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "group": ["LitCampfire", "FireSource", "LitStructure"],
+    "tier": { "409": 1 }
+  },
+  "ClayFurnace": {
+    "pickUp": ["ClayFurnace"],
+    "blockMove": true,
+    "canBreak": true,
+    "lit": "LitClayFurnace",
+    "repairItem": "ClayFurnace",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true,
+    "spawnOnWorldGen": { "3": { "1": { "25": 1 } } }
+  },
+  "LitClayFurnace": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 1,
+    "blockMove": true,
+    "canBreak": true,
+    "revert": "ClayFurnace",
+    "isAnimated": true,
+    "repairItem": "ClayFurnace",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "group": ["LitFurnace", "FireSource", "LitStructure"],
+    "tier": { "402": 2, "409": 2 },
+    "isTall": true
+  },
+  "ClayWaterStill": {
+    "pickUp": ["ClayWaterStill"],
+    "lit": "LitClayWaterStill",
+    "isWaterSource": true,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "ClayWaterStill",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true
+  },
+  "LitClayWaterStill": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 2,
+    "revert": "ClayWaterStill",
+    "isAnimated": true,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "ClayWaterStill",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "group": ["LitWaterStill", "FireSource", "LitStructure"],
+    "waterStill": true,
+    "tier": { "409": 1 },
+    "isTall": true
+  },
+  "SandstoneCampfire": {
+    "pickUp": ["SandstoneCampfire"],
+    "lit": "LitSandstoneCampfire",
+    "repairItem": "SandstoneCampfire",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "spawnOnWorldGen": { "3": { "1": { "21": 1 } } }
+  },
+  "LitSandstoneCampfire": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 3,
+    "revert": "SandstoneCampfire",
+    "isAnimated": true,
+    "repairItem": "SandstoneCampfire",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "group": ["LitCampfire", "FireSource", "LitStructure"],
+    "tier": { "409": 1 }
+  },
+  "SandstoneFurnace": {
+    "pickUp": ["SandstoneFurnace"],
+    "blockMove": true,
+    "canBreak": true,
+    "lit": "LitSandstoneFurnace",
+    "repairItem": "SandstoneFurnace",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true,
+    "spawnOnWorldGen": { "3": { "1": { "21": 1 } } }
+  },
+  "LitSandstoneFurnace": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 1,
+    "blockMove": true,
+    "canBreak": true,
+    "revert": "SandstoneFurnace",
+    "isAnimated": true,
+    "repairItem": "SandstoneFurnace",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "group": ["LitFurnace", "FireSource", "LitStructure"],
+    "tier": { "402": 1, "409": 2 },
+    "isTall": true
+  },
+  "SandstoneWaterStill": {
+    "pickUp": ["SandstoneWaterStill"],
+    "lit": "LitSandstoneWaterStill",
+    "isWaterSource": true,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "SandstoneWaterStill",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true
+  },
+  "LitSandstoneWaterStill": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 2,
+    "revert": "SandstoneWaterStill",
+    "isAnimated": true,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "SandstoneWaterStill",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "group": ["LitWaterStill", "FireSource", "LitStructure"],
+    "waterStill": true,
+    "tier": { "409": 1 },
+    "isTall": true
+  },
+  "StoneKiln": {
+    "pickUp": ["StoneKiln"],
+    "blockMove": true,
+    "canBreak": true,
+    "lit": "LitStoneKiln",
+    "repairItem": "StoneKiln",
+    "particles": { "r": 130, "g": 128, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "isTall": true
+  },
+  "LitStoneKiln": {
+    "decayMax": 250,
+    "providesFire": true,
+    "providesLight": 1,
+    "blockMove": true,
+    "canBreak": true,
+    "revert": "StoneKiln",
+    "isAnimated": true,
+    "repairItem": "StoneKiln",
+    "particles": { "r": 130, "g": 128, "b": 128 },
+    "group": ["LitKiln", "FireSource", "LitStructure"],
+    "tier": { "403": 1, "409": 2 },
+    "isTall": true
+  },
+  "WroughtIronAnvil": {
+    "pickUp": ["WroughtIronAnvil"],
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "WroughtIronAnvil",
+    "particles": { "r": 88, "g": 95, "b": 114 },
+    "group": ["Anvil"],
+    "reduceDurabilityOnGather": true,
+    "tier": { "405": 2 },
+    "isTall": true
+  },
+  "IronAnvil": {
+    "pickUp": ["IronAnvil"],
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "IronAnvil",
+    "particles": { "r": 220, "g": 223, "b": 231 },
+    "group": ["Anvil"],
+    "reduceDurabilityOnGather": true,
+    "tier": { "405": 3 },
+    "isTall": true
+  },
+  "MapleTree": {
+    "blockLos": true,
+    "blockMove": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 124, "g": 193, "b": 41 },
+    "growthParticles": { "6": { "r": 85, "g": 50, "b": 36 } },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "gatherSkillUse": "Lumberjacking",
+    "isTall": true,
+    "gather": {
+      "Seedling": [{ "type": "Branch" }, { "type": "PlantRoots" }],
+      "Vegetative": [
+        { "type": "Leaves" },
+        { "type": "Branch" },
+        { "type": "PlantRoots" }
+      ],
+      "Budding": [
+        { "type": "Leaves" },
+        { "type": "Leaves" },
+        { "type": "Twigs" },
+        { "type": "Branch" },
+        { "type": "TreeBark" }
+      ],
+      "Flowering": [
+        { "type": "Leaves" },
+        { "type": "Leaves" },
+        { "type": "Twigs" },
+        { "type": "Branch", "chance": 10 },
+        { "type": "Branch" },
+        { "type": "TreeBark", "chance": 5 },
+        { "type": "TreeBark" }
+      ],
+      "Bare": [
+        { "type": "Log" },
+        { "type": "Branch" },
+        { "type": "Log" },
+        { "type": "Log", "chance": 10 },
+        { "type": "Log" }
+      ]
+    },
+    "harvest": {
+      "Ripening": [{ "type": "MapleSeeds" }, { "type": "MapleSeeds" }]
+    },
+    "group": ["GatheredPlant"],
+    "canGrow": true,
+    "spawnOnTerrain": ["Dirt", "Grass"],
+    "allowedTiles": ["Dirt", "Grass", "FertileSoil"],
+    "decayMax": 6200,
+    "spreadMax": 2,
+    "isTree": true,
+    "gatherCanHurtHands": true,
+    "durability": 12,
+    "spawnOnWorldGen": { "1": { "1": { "6": 1, "8": 1 } } }
+  },
+  "AppleTree": {
+    "blockLos": true,
+    "blockMove": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 106, "g": 154, "b": 5 },
+    "growthParticles": { "6": { "r": 136, "g": 90, "b": 81 } },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "gatherSkillUse": "Lumberjacking",
+    "isTall": true,
+    "gather": {
+      "Seedling": [{ "type": "Branch" }, { "type": "PlantRoots" }],
+      "Vegetative": [
+        { "type": "Leaves" },
+        { "type": "Branch" },
+        { "type": "PlantRoots" }
+      ],
+      "Budding": [
+        { "type": "Leaves" },
+        { "type": "Twigs" },
+        { "type": "Branch" },
+        { "type": "TreeBark" }
+      ],
+      "Flowering": [
+        { "type": "Leaves" },
+        { "type": "Twigs" },
+        { "type": "Branch" },
+        { "type": "TreeBark" }
+      ],
+      "Bare": [
+        { "type": "Log" },
+        { "type": "Branch" },
+        { "type": "Log", "chance": 50 },
+        { "type": "Log", "chance": 10 },
+        { "type": "Log" }
+      ]
+    },
+    "harvest": {
+      "Ripening": [
+        { "type": "Apple" },
+        { "type": "Apple" },
+        { "type": "Apple" }
+      ]
+    },
+    "canGrow": true,
+    "spawnOnTerrain": ["Dirt", "Grass"],
+    "allowedTiles": ["Dirt", "Grass", "FertileSoil"],
+    "decayMax": 6000,
+    "spreadMax": 2,
+    "isTree": true,
+    "gatherCanHurtHands": true,
+    "durability": 11,
+    "spawnOnWorldGen": { "1": { "1": { "6": 1 } } }
+  },
+  "SpruceTree": {
+    "blockLos": true,
+    "blockMove": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 86, "g": 120, "b": 20 },
+    "growthParticles": { "6": { "r": 81, "g": 32, "b": 13 } },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "gatherSkillUse": "Lumberjacking",
+    "isTall": true,
+    "gather": {
+      "Seedling": [{ "type": "SpruceNeedles" }, { "type": "PlantRoots" }],
+      "Vegetative": [
+        { "type": "SpruceNeedles" },
+        { "type": "Twigs" },
+        { "type": "PlantRoots" }
+      ],
+      "Budding": [
+        { "type": "SpruceNeedles" },
+        { "type": "SpruceNeedles" },
+        { "type": "Twigs" },
+        { "type": "TreeBark" }
+      ],
+      "Flowering": [
+        { "type": "SpruceNeedles" },
+        { "type": "SpruceNeedles" },
+        { "type": "Twigs" },
+        { "type": "TreeBark", "chance": 5 },
+        { "type": "TreeBark" }
+      ],
+      "Bare": [
+        { "type": "Log" },
+        { "type": "Twigs" },
+        { "type": "Log" },
+        { "type": "Log", "chance": 10 },
+        { "type": "Log" }
+      ]
+    },
+    "harvest": {
+      "Ripening": [{ "type": "SpruceCone" }, { "type": "SpruceCone" }]
+    },
+    "group": ["GatheredPlant"],
+    "canGrow": true,
+    "spawnOnTerrain": ["Dirt"],
+    "allowedTiles": ["Dirt", "Grass", "FertileSoil"],
+    "decayMax": 6000,
+    "spreadMax": 1,
+    "isTree": true,
+    "gatherCanHurtHands": true,
+    "durability": 13,
+    "spawnOnWorldGen": { "1": { "1": { "6": 1, "8": 1 } } }
+  },
+  "CypressTree": {
+    "blockLos": true,
+    "blockMove": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 135, "g": 171, "b": 7 },
+    "growthParticles": { "6": { "r": 196, "g": 178, "b": 138 } },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "gatherSkillUse": "Lumberjacking",
+    "isTall": true,
+    "gather": {
+      "Seedling": [{ "type": "CypressLeaves" }, { "type": "PlantRoots" }],
+      "Vegetative": [
+        { "type": "CypressLeaves" },
+        { "type": "Twigs" },
+        { "type": "PlantRoots" }
+      ],
+      "Budding": [
+        { "type": "CypressLeaves" },
+        { "type": "CypressLeaves" },
+        { "type": "Twigs" },
+        { "type": "TreeBark" }
+      ],
+      "Flowering": [
+        { "type": "CypressLeaves" },
+        { "type": "CypressLeaves" },
+        { "type": "Twigs" },
+        { "type": "TreeBark" }
+      ],
+      "Bare": [
+        { "type": "Log" },
+        { "type": "Twigs" },
+        { "type": "Log" },
+        { "type": "Log", "chance": 10 },
+        { "type": "Log" }
+      ]
+    },
+    "harvest": {
+      "Ripening": [{ "type": "CypressCone" }, { "type": "CypressCone" }]
+    },
+    "group": ["GatheredPlant"],
+    "canGrow": true,
+    "spawnOnTerrain": ["Swamp", "ShallowFreshWater", "Dirt", "Grass"],
+    "allowedTiles": ["Swamp", "Dirt", "Grass", "FertileSoil"],
+    "decayMax": 6200,
+    "spreadMax": 1,
+    "isTree": true,
+    "gatherCanHurtHands": true,
+    "durability": 12,
+    "spawnOnWorldGen": { "1": { "1": { "5": 1, "11": 1 } } }
+  },
+  "CoconutTree": {
+    "blockLos": true,
+    "blockMove": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 157, "g": 179, "b": 0 },
+    "growthParticles": { "6": { "r": 212, "g": 201, "b": 148 } },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "gatherSkillUse": "Lumberjacking",
+    "isTall": true,
+    "gather": {
+      "Seedling": [{ "type": "PalmLeaf" }, { "type": "PlantRoots" }],
+      "Vegetative": [{ "type": "PalmLeaf" }, { "type": "PlantRoots" }],
+      "Budding": [
+        { "type": "PalmLeaf" },
+        { "type": "PalmLeaf" },
+        { "type": "TreeBark" },
+        { "type": "TreeBark" }
+      ],
+      "Flowering": [
+        { "type": "PalmLeaf" },
+        { "type": "PalmLeaf" },
+        { "type": "TreeBark" },
+        { "type": "TreeBark" }
+      ],
+      "Bare": [
+        { "type": "Log" },
+        { "type": "Log", "chance": 10 },
+        { "type": "Log" }
+      ]
+    },
+    "harvest": {
+      "Ripening": [
+        { "type": "Coconut" },
+        { "type": "Coconut", "chance": 5 },
+        { "type": "Coconut" }
+      ]
+    },
+    "canGrow": true,
+    "spawnOnTerrain": ["DesertSand", "Gravel"],
+    "allowedTiles": ["BeachSand", "DesertSand", "Gravel", "FertileSoil"],
+    "decayMax": 6200,
+    "spreadMax": 1,
+    "isTree": true,
+    "gatherCanHurtHands": true,
+    "durability": 12,
+    "spawnOnWorldGen": { "3": { "1": { "9": 1, "34": 1 } } }
+  },
+  "Lettuce": {
+    "gather": {
+      "Budding": [{ "type": "Lettuce" }],
+      "Flowering": [{ "type": "Lettuce" }]
+    },
+    "harvest": { "Ripening": [{ "type": "LettuceSeeds" }] },
+    "group": ["GatheredPlant"],
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 3,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 136, "g": 216, "b": 9 },
+    "canGrow": true,
+    "decayMax": 2600,
+    "durability": 6,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "PotatoPlant": {
+    "gather": {
+      "Vegetative": [{ "type": "Leaves" }],
+      "Budding": [{ "type": "Leaves" }, { "type": "Potato" }],
+      "Flowering": [
+        { "type": "Leaves" },
+        { "type": "Potato" },
+        { "type": "Potato", "chance": 5 },
+        { "type": "Potato" }
+      ]
+    },
+    "harvest": { "Ripening": [{ "type": "PotatoSeeds" }] },
+    "group": ["GatheredPlant"],
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 3,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 100, "g": 189, "b": 27 },
+    "canGrow": true,
+    "decayMax": 2800,
+    "durability": 6,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "Carrots": {
+    "gather": {
+      "Budding": [{ "type": "Carrot" }],
+      "Flowering": [
+        { "type": "Carrot" },
+        { "type": "Carrot", "chance": 5 },
+        { "type": "Carrot" }
+      ]
+    },
+    "harvest": { "Ripening": [{ "type": "CarrotSeeds" }] },
+    "group": ["GatheredPlant"],
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 3,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 161, "g": 221, "b": 0 },
+    "canGrow": true,
+    "decayMax": 2800,
+    "durability": 6,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "CornStalks": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "PlantRoots" }],
+      "Flowering": [{ "type": "CornEar" }, { "type": "PlantRoots" }]
+    },
+    "harvest": { "Ripening": [{ "type": "CornEar" }, { "type": "CornEar" }] },
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 1,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 148, "g": 203, "b": 2 },
+    "canGrow": true,
+    "decayMax": 2800,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "CucumberPlant": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "Leaves" }, { "type": "PlantRoots" }],
+      "Flowering": [{ "type": "Leaves" }, { "type": "PlantRoots" }]
+    },
+    "harvest": { "Ripening": [{ "type": "Cucumber" }, { "type": "Cucumber" }] },
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 1,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 95, "g": 174, "b": 31 },
+    "canGrow": true,
+    "canTrampleWhenMature": true,
+    "decayMax": 2800,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "6": 1 } } }
+  },
+  "TomatoPlant": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "Leaves" }, { "type": "PlantRoots" }],
+      "Flowering": [{ "type": "Leaves" }, { "type": "PlantRoots" }]
+    },
+    "harvest": { "Ripening": [{ "type": "Tomato" }, { "type": "Tomato" }] },
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 1,
+    "allowedTiles": ["Swamp", "Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 114, "g": 186, "b": 0 },
+    "canGrow": true,
+    "canTrampleWhenMature": true,
+    "decayMax": 2800,
+    "durability": 7,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "6": 1, "11": 1 } } }
+  },
+  "Pumpkin": {
+    "gather": {
+      "Budding": [{ "type": "Leaves" }],
+      "Flowering": [{ "type": "Leaves" }, { "type": "Pumpkin" }]
+    },
+    "harvest": { "Ripening": [{ "type": "Pumpkin" }] },
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 1,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 162, "g": 198, "b": 21 },
+    "canGrow": true,
+    "decayMax": 3000,
+    "durability": 8,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "SugarCaneStalks": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [
+        { "type": "Leaves" },
+        { "type": "SugarCaneStalks" },
+        { "type": "PlantRoots" }
+      ],
+      "Flowering": [
+        { "type": "Leaves" },
+        { "type": "SugarCaneStalks", "chance": 5 },
+        { "type": "SugarCaneStalks" },
+        { "type": "PlantRoots" }
+      ]
+    },
+    "harvest": { "Ripening": [{ "type": "SugarCaneSeeds" }] },
+    "group": ["GatheredPlant"],
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 3,
+    "allowedTiles": [
+      "BeachSand",
+      "DesertSand",
+      "Gravel",
+      "Dirt",
+      "FertileSoil",
+      "Grass"
+    ],
+    "graphicVariation": true,
+    "particles": { "r": 103, "g": 185, "b": 15 },
+    "canGrow": true,
+    "decayMax": 3000,
+    "gatherCanHurtHands": true,
+    "durability": 8,
+    "isTall": true,
+    "spawnOnWorldGen": { "3": { "1": { "7": 1, "9": 1, "34": 1 } } }
+  },
+  "Wheat": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "PlantRoots" }],
+      "Flowering": [{ "type": "PlantRoots" }]
+    },
+    "harvest": {
+      "Ripening": [
+        { "type": "BushelOfWheat", "chance": 5 },
+        { "type": "BushelOfWheat" }
+      ]
+    },
+    "skillUse": 5,
+    "isFlammable": true,
+    "spreadMax": 6,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "graphicVariation": true,
+    "particles": { "r": 161, "g": 207, "b": 25 },
+    "growthParticles": { "5": { "r": 230, "g": 176, "b": 29 } },
+    "canGrow": true,
+    "decayMax": 2600,
+    "durability": 6,
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "1": { "8": 1 } } }
+  },
+  "CopperChest": {
+    "pickUp": ["CopperChest"],
+    "weightCapacity": 100,
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "CopperChest",
+    "particles": { "r": 225, "g": 152, "b": 116 },
+    "reduceDurabilityOnGather": true,
+    "preservationChance": 0.6,
+    "isTall": true
+  },
+  "CopperAnvil": {
+    "pickUp": ["CopperAnvil"],
+    "blockMove": true,
+    "canBreak": true,
+    "repairItem": "CopperAnvil",
+    "particles": { "r": 88, "g": 95, "b": 114 },
+    "group": ["Anvil"],
+    "reduceDurabilityOnGather": true,
+    "tier": { "405": 2 },
+    "isTall": true
+  },
+  "BarkTorchStand": {
+    "pickUp": ["BarkTorch"],
+    "lit": "LitBarkTorchStand",
+    "repairItem": "BarkTorch",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "group": ["LightDevice"],
+    "isTall": true,
+    "spawnOnWorldGen": { "1": { "0": { "8": 5 } } }
+  },
+  "LitBarkTorchStand": {
+    "pickUp": ["LitBarkTorch"],
+    "decayMax": 2000,
+    "providesFire": true,
+    "providesLight": 3,
+    "revert": "BarkTorchStand",
+    "isAnimated": true,
+    "repairItem": "BarkTorch",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "group": ["FireSource", "LitTorch", "LightSource"],
+    "tier": { "409": 1 },
+    "isTall": true
+  },
+  "TallowTorchStand": {
+    "pickUp": ["TallowTorch"],
+    "lit": "LitTallowTorchStand",
+    "repairItem": "TallowTorch",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "group": ["LightDevice"],
+    "isTall": true
+  },
+  "LitTallowTorchStand": {
+    "pickUp": ["LitTallowTorch"],
+    "decayMax": 3500,
+    "providesFire": true,
+    "providesLight": 4,
+    "revert": "TallowTorchStand",
+    "isAnimated": true,
+    "repairItem": "TallowTorch",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "group": ["FireSource", "LitTorch", "LightSource"],
+    "tier": { "409": 2 },
+    "isTall": true
+  },
+  "JoshuaTree": {
+    "blockLos": true,
+    "blockMove": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 85, "g": 116, "b": 23 },
+    "growthParticles": { "6": { "r": 131, "g": 102, "b": 88 } },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "gatherSkillUse": "Lumberjacking",
+    "isTall": true,
+    "gather": {
+      "Seedling": [{ "type": "JoshuaTreeLeaves" }, { "type": "PlantRoots" }],
+      "Vegetative": [{ "type": "JoshuaTreeLeaves" }, { "type": "PlantRoots" }],
+      "Budding": [
+        { "type": "JoshuaTreeLeaves" },
+        { "type": "JoshuaTreeLeaves" },
+        { "type": "TreeBark" },
+        { "type": "TreeBark" }
+      ],
+      "Bare": [{ "type": "Log", "chance": 10 }, { "type": "Log" }]
+    },
+    "harvest": {
+      "Flowering": [
+        { "type": "JoshuaTreeFlowers", "chance": 50 },
+        { "type": "JoshuaTreeFlowers" }
+      ],
+      "Ripening": [
+        { "type": "JoshuaTreeFlowers" },
+        { "type": "JoshuaTreeFlowers" },
+        { "type": "JoshuaTreeFruit" },
+        { "type": "JoshuaTreeFruit", "chance": 5 },
+        { "type": "JoshuaTreeFruit" }
+      ]
+    },
+    "canGrow": true,
+    "spawnOnTerrain": ["DesertSand", "Gravel"],
+    "allowedTiles": ["BeachSand", "DesertSand", "Gravel", "FertileSoil"],
+    "decayMax": 6200,
+    "spreadMax": 2,
+    "isTree": true,
+    "gatherCanHurtHands": true,
+    "durability": 11,
+    "spawnOnWorldGen": { "3": { "1": { "9": 1, "34": 1 } } }
+  },
+  "SaguaroCactus": {
+    "blockLos": true,
+    "blockMove": true,
+    "graphicVariation": true,
+    "particles": { "r": 114, "g": 121, "b": 40 },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "isTall": true,
+    "gather": {
+      "Vegetative": [
+        { "type": "CactusSpines" },
+        { "type": "SaguaroCactusChunk" }
+      ],
+      "Budding": [
+        { "type": "CactusSpines" },
+        { "type": "CactusSpines" },
+        { "type": "SaguaroCactusChunk", "chance": 75 },
+        { "type": "SaguaroCactusChunk" }
+      ],
+      "Flowering": [
+        { "type": "CactusSpines" },
+        { "type": "CactusSpines", "chance": 50 },
+        { "type": "CactusSpines" },
+        { "type": "SaguaroCactusChunk" },
+        { "type": "SaguaroCactusChunk" }
+      ]
+    },
+    "harvest": {
+      "Ripening": [
+        { "type": "SaguaroCactusFruit", "chance": 75 },
+        { "type": "SaguaroCactusFruit" },
+        { "type": "SaguaroCactusFruit" }
+      ]
+    },
+    "canGrow": true,
+    "allowedTiles": ["BeachSand", "DesertSand", "Gravel", "FertileSoil"],
+    "decayMax": 4100,
+    "spreadMax": 1,
+    "gatherCanHurtHands": true,
+    "durability": 8,
+    "spawnOnWorldGen": { "3": { "1": { "9": 2, "34": 2 } } }
+  },
+  "AloeVera": {
+    "graphicVariation": true,
+    "particles": { "r": 87, "g": 171, "b": 66 },
+    "reduceDurabilityOnGather": true,
+    "skillUse": 5,
+    "isTall": true,
+    "gather": {
+      "Vegetative": [{ "type": "AloeVeraLeaves" }, { "type": "PlantRoots" }],
+      "Budding": [
+        { "type": "AloeVeraLeaves" },
+        { "type": "AloeVeraLeaves" },
+        { "type": "PlantRoots" }
+      ],
+      "Flowering": [
+        { "type": "AloeVeraLeaves" },
+        { "type": "AloeVeraLeaves", "chance": 25 },
+        { "type": "AloeVeraLeaves" },
+        { "type": "PlantRoots" }
+      ]
+    },
+    "harvest": { "Ripening": [{ "type": "AloeVeraSeeds" }] },
+    "group": ["GatheredPlant"],
+    "canGrow": true,
+    "allowedTiles": ["BeachSand", "DesertSand", "Gravel", "FertileSoil"],
+    "decayMax": 3300,
+    "spreadMax": 1,
+    "gatherCanHurtHands": true,
+    "durability": 7,
+    "spawnOnWorldGen": { "3": { "1": { "7": 1, "9": 1, "34": 1 } } }
+  },
+  "TallowCandle": {
+    "pickUp": ["TallowCandle"],
+    "lit": "LitTallowCandle",
+    "repairItem": "TallowCandle",
+    "particles": { "r": 236, "g": 210, "b": 157 },
+    "reduceDurabilityOnGather": true,
+    "group": ["LightDevice"]
+  },
+  "LitTallowCandle": {
+    "pickUp": ["LitTallowCandle"],
+    "decayMax": 5000,
+    "providesFire": true,
+    "providesLight": 4,
+    "revert": "TallowCandle",
+    "isAnimated": true,
+    "repairItem": "TallowCandle",
+    "particles": { "r": 236, "g": 210, "b": 157 },
+    "reduceDurabilityOnGather": true,
+    "group": ["FireSource", "LightSource"],
+    "tier": { "409": 2 }
+  },
+  "CottonBedroll": {
+    "pickUp": ["CottonBedroll"],
+    "actionTypes": ["Rest", "Sleep"],
+    "isFlammable": true,
+    "repairItem": "CottonBedroll",
+    "particles": { "r": 232, "g": 232, "b": 232 },
+    "reduceDurabilityOnGather": true
+  },
+  "FeatherBedroll": {
+    "pickUp": ["FeatherBedroll"],
+    "actionTypes": ["Rest", "Sleep"],
+    "isFlammable": true,
+    "repairItem": "FeatherBedroll",
+    "particles": { "r": 246, "g": 243, "b": 246 },
+    "reduceDurabilityOnGather": true,
+    "spawnOnWorldGen": { "3": { "1": { "21": 1, "25": 1 } } }
+  },
+  "Hammock": {
+    "pickUp": ["Hammock"],
+    "actionTypes": ["Rest", "Sleep"],
+    "isTall": true,
+    "isFlammable": true,
+    "repairItem": "Hammock",
+    "particles": { "r": 133, "g": 77, "b": 22 },
+    "reduceDurabilityOnGather": true
+  },
+  "LeafBedroll": {
+    "pickUp": ["LeafBedroll"],
+    "actionTypes": ["Rest", "Sleep"],
+    "isFlammable": true,
+    "repairItem": "LeafBedroll",
+    "particles": { "r": 85, "g": 168, "b": 41 },
+    "reduceDurabilityOnGather": true,
+    "spawnOnWorldGen": {
+      "1": { "0": { "19": 5, "24": 5 }, "1": { "19": 1, "24": 1 } }
+    }
+  },
+  "HitchingPost": {
+    "pickUp": ["HitchingPost"],
+    "repairItem": "HitchingPost",
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "reduceDurabilityOnGather": true,
+    "blockMove": true,
+    "group": ["Hitch"],
+    "canBreak": true,
+    "isTall": true
+  },
+  "ClayWell": {
+    "pickUp": ["ClayWell"],
+    "repairItem": "ClayWell",
+    "particles": { "r": 200, "g": 205, "b": 207 },
+    "reduceDurabilityOnGather": true,
+    "group": ["Well"],
+    "isTall": true,
+    "blockMove": true,
+    "canBreak": true,
+    "spawnOnWorldGen": { "3": { "1": { "25": 1 } } }
+  },
+  "SandstoneWell": {
+    "pickUp": ["SandstoneWell"],
+    "repairItem": "SandstoneWell",
+    "particles": { "r": 199, "g": 156, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "group": ["Well"],
+    "isTall": true,
+    "blockMove": true,
+    "canBreak": true,
+    "spawnOnWorldGen": { "3": { "1": { "21": 1 } } }
+  },
+  "StoneWell": {
+    "pickUp": ["StoneWell"],
+    "repairItem": "StoneWell",
+    "particles": { "r": 130, "g": 128, "b": 128 },
+    "reduceDurabilityOnGather": true,
+    "group": ["Well"],
+    "isTall": true,
+    "blockMove": true,
+    "canBreak": true
+  },
+  "AshCementWall": {
+    "pickUp": ["AshCementWall"],
+    "blockMove": true,
+    "canBreak": true,
+    "blockJump": true,
+    "repairItem": "AshCementWall",
+    "particles": { "r": 136, "g": 134, "b": 132 },
+    "reduceDurabilityOnGather": true,
+    "disableDrop": true,
+    "isWall": true
+  },
+  "SpruceTreeWithSnow": {
+    "blockLos": true,
+    "blockMove": true,
+    "graphicVariation": true,
+    "particles": { "r": 201, "g": 224, "b": 228 },
+    "skillUse": 5,
+    "gatherSkillUse": "Lumberjacking",
+    "isTall": true,
+    "gather": {
+      "Seedling": [{ "type": "PileOfSnow" }],
+      "Vegetative": [
+        { "type": "PileOfSnow", "chance": 25 },
+        { "type": "PileOfSnow" }
+      ],
+      "Budding": [{ "type": "PileOfSnow" }, { "type": "PileOfSnow" }],
+      "Flowering": [{ "type": "PileOfSnow" }, { "type": "PileOfSnow" }],
+      "Ripening": [{ "type": "PileOfSnow" }, { "type": "PileOfSnow" }],
+      "Bare": [{ "type": "PileOfSnow" }, { "type": "PileOfSnow" }]
+    },
+    "group": ["GatheredPlant"],
+    "canGrow": true,
+    "spawnOnTerrain": ["Dirt", "Snow"],
+    "allowedTiles": ["Dirt", "Grass", "FertileSoil", "Snow"],
+    "decayMax": 6200,
+    "isTree": true,
+    "durability": 13,
+    "leftOver": "SpruceTree"
+  },
+  "CrowberryShrub": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "PlantRoots" }],
+      "Flowering": [{ "type": "PlantRoots" }]
+    },
+    "harvest": {
+      "Ripening": [{ "type": "Crowberries" }, { "type": "Crowberries" }]
+    },
+    "skillUse": 5,
+    "isTall": true,
+    "spreadMax": 1,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 18, "g": 152, "b": 34 },
+    "canGrow": true,
+    "decayMax": 3200,
+    "durability": 8,
+    "spawnOnWorldGen": { "2": { "1": { "6": 1, "8": 1 } } }
+  },
+  "WinterberryShrub": {
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [{ "type": "Leaves" }, { "type": "Twigs" }],
+      "Flowering": [
+        { "type": "Leaves" },
+        { "type": "Twigs" },
+        { "type": "Winterberries" },
+        { "type": "Winterberries" }
+      ],
+      "Ripening": [
+        { "type": "Twigs" },
+        { "type": "Winterberries", "chance": 90 },
+        { "type": "Winterberries" },
+        { "type": "Winterberries" }
+      ],
+      "Bare": [
+        { "type": "Twigs", "chance": 90 },
+        { "type": "Twigs" },
+        { "type": "PlantRoots" }
+      ]
+    },
+    "skillUse": 5,
+    "isTall": true,
+    "spreadMax": 2,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 0, "g": 153, "b": 54 },
+    "growthParticles": { "4": { "r": 192, "g": 146, "b": 109 } },
+    "canGrow": true,
+    "decayMax": 2900,
+    "durability": 8,
+    "spawnOnWorldGen": { "2": { "1": { "6": 1, "8": 1, "10": 1 } } },
+    "group": ["GatheredPlant"],
+    "isTree": true
+  },
+  "ArcticPoppies": {
+    "spreadMax": 3,
+    "gather": {
+      "Vegetative": [{ "type": "PlantRoots" }],
+      "Budding": [
+        { "type": "ArcticPoppies", "chance": 25 },
+        { "type": "PlantRoots" }
+      ]
+    },
+    "harvest": {
+      "Flowering": [
+        { "type": "ArcticPoppies" },
+        { "type": "ArcticPoppies", "chance": 50 },
+        { "type": "ArcticPoppies" }
+      ],
+      "Ripening": [
+        { "type": "ArcticPoppies", "chance": 15 },
+        { "type": "ArcticPoppySeeds" }
+      ]
+    },
+    "skillUse": 5,
+    "isTall": true,
+    "allowedTiles": ["Dirt", "FertileSoil", "Grass"],
+    "canTrampleWhenMature": true,
+    "isFlammable": true,
+    "graphicVariation": true,
+    "particles": { "r": 28, "g": 144, "b": 2 },
+    "growthParticles": { "4": { "r": 237, "g": 223, "b": 0 } },
+    "canGrow": true,
+    "decayMax": 2600,
+    "durability": 6,
+    "spawnOnWorldGen": { "2": { "1": { "6": 1, "8": 1 } } }
+  },
+  "LockedCopperChest": {
+    "pickUp": ["CopperChest"],
+    "blockMove": true,
+    "canBreak": true,
+    "particles": { "r": 225, "g": 152, "b": 116 },
+    "durability": 50,
+    "isTall": true,
+    "spawnOnWorldGen": {
+      "1": { "0": { "7": 1, "8": 1, "19": 1, "24": 1, "35": 1 } },
+      "3": { "0": { "7": 2, "34": 2, "36": 2 } }
+    },
+    "group": ["LockedChest"],
+    "lockedChest": {
+      "unlockedDoodadType": 81,
+      "lockPickingDifficulty": 25,
+      "lootGroups": [1, 2, 4, 4],
+      "lootQuality": 200,
+      "guardiansSpawned": 1
+    }
+  },
+  "LockedWroughtIronChest": {
+    "pickUp": ["WroughtIronChest"],
+    "blockMove": true,
+    "canBreak": true,
+    "particles": { "r": 88, "g": 95, "b": 114 },
+    "durability": 100,
+    "isTall": true,
+    "spawnOnWorldGen": {
+      "2": { "0": { "8": 3, "35": 3 } },
+      "3": { "0": { "7": 1, "34": 1, "36": 1 } }
+    },
+    "group": ["LockedChest"],
+    "lockedChest": {
+      "unlockedDoodadType": 45,
+      "lockPickingDifficulty": 50,
+      "lootGroups": [1, 6, 2],
+      "lootQuality": 300,
+      "guardiansSpawned": 2
+    }
+  },
+  "LockedIronChest": {
+    "pickUp": ["IronChest"],
+    "blockMove": true,
+    "canBreak": true,
+    "particles": { "r": 220, "g": 223, "b": 231 },
+    "durability": 200,
+    "isTall": true,
+    "spawnOnWorldGen": { "2": { "0": { "8": 1, "35": 1 } } },
+    "group": ["LockedChest"],
+    "lockedChest": {
+      "unlockedDoodadType": 46,
+      "lockPickingDifficulty": 75,
+      "lootGroups": [6, 6, 2, 2, 7],
+      "lootQuality": 350,
+      "guardiansSpawned": 3
+    }
+  },
+  "LockedOrnateWoodenChest": {
+    "pickUp": ["OrnateWoodenChest"],
+    "blockMove": true,
+    "canBreak": true,
+    "particles": { "r": 132, "g": 96, "b": 44 },
+    "burnsLike": ["WoodenChest"],
+    "durability": 50,
+    "isTall": true,
+    "group": ["LockedChest"],
+    "isFlammable": true,
+    "lockedChest": {
+      "unlockedDoodadType": 47,
+      "lockPickingDifficulty": 100,
+      "lootGroups": [7],
+      "lootQuality": 400,
+      "guardiansSpawned": 4
+    }
+  }
+}

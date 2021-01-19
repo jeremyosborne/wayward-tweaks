@@ -3,13 +3,19 @@
 //
 // Recommend importing as: `import * as rubberDuck from './rubber-duck'`
 //
-import { DoodadType, DoodadTypeGroup } from "doodad/IDoodad"
 import { doodadDescriptions } from "doodad/Doodads"
+import {
+  DoodadType,
+  DoodadTypeGroup,
+  GrowingStage,
+  IDoodadDescription,
+} from "doodad/IDoodad"
 import { ActionType } from "entity/action/IAction"
 import { CreatureType, TileGroup } from "entity/creature/ICreature"
 import { DamageType, StatusType } from "entity/IEntity"
 import { SkillType } from "entity/IHuman"
 import { BiomeType } from "game/IBiome"
+import { ILootItem } from "game/ILoot"
 import {
   EquipEffect,
   IItemDescription,
@@ -23,22 +29,17 @@ import Log from "utilities/Log"
 const logger = new Log("rubber-duck")
 
 // Because humans can reason about strings better than numbers.
-const toActionType = (actionType?: ActionType) =>
-  actionType && (ActionType[actionType] || actionType)
-const toBiomeType = (biomeType?: BiomeType) =>
-  biomeType && (BiomeType[biomeType] || biomeType)
-const toCreatureType = (creatureType?: CreatureType) =>
-  creatureType && (CreatureType[creatureType] || creatureType)
-const toDoodadTypeOrGroup = (doodadType?: DoodadType) =>
-  doodadType &&
-  (DoodadType[doodadType] || DoodadTypeGroup[doodadType] || doodadType)
+const toActionType = (t?: ActionType) => t && (ActionType[t] || t)
+const toBiomeType = (t?: BiomeType) => t && (BiomeType[t] || t)
+const toCreatureType = (t?: CreatureType) => t && (CreatureType[t] || t)
+const toDoodadTypeOrGroup = (t?: DoodadType | DoodadTypeGroup) =>
+  t && (DoodadType[t] || DoodadTypeGroup[t] || t)
+const toGrowingStage = (t?: GrowingStage) => t && (GrowingStage[t] || t)
 /** ItemGroups are offset and can't collide with ItemType enumerations, otherwise recipe components would break. */
-const toItemTypeOrGroup = (itemType?: ItemType | ItemTypeGroup) =>
-  itemType && (ItemType[itemType] || ItemTypeGroup[itemType] || itemType)
-const toSkillType = (skillType?: SkillType) =>
-  skillType && (SkillType[skillType] || skillType)
-const toStatusType = (statusType?: StatusType) =>
-  statusType && (StatusType[statusType] || statusType)
+const toItemTypeOrGroup = (t?: ItemType | ItemTypeGroup) =>
+  t && (ItemType[t] || ItemTypeGroup[t] || t)
+const toSkillType = (t?: SkillType) => t && (SkillType[t] || t)
+const toStatusType = (t?: StatusType) => t && (StatusType[t] || t)
 const toTileGroup = (t?: TileGroup) => t && (TileGroup[t] || t)
 const toTerrainType = (t?: TerrainType) => t && (TerrainType[t] || t)
 
@@ -47,7 +48,10 @@ const toTerrainType = (t?: TerrainType) => t && (TerrainType[t] || t)
  */
 export const doodadDescriptionsDump = (): void => {
   // Deviate from the types to make things human readable.
-  const doodadDescriptionsDictionary: Record<string, unknown> = {}
+  const doodadDescriptionsDictionary: Record<
+    string,
+    { [Key in keyof IDoodadDescription]?: unknown }
+  > = {}
   for (const [doodadTypeKey, doodadDescription] of Object.entries(
     doodadDescriptions
   )) {
@@ -59,76 +63,57 @@ export const doodadDescriptionsDump = (): void => {
         actionTypes: doodadDescription.actionTypes?.map(toActionType),
         allowedTiles: doodadDescription.allowedTiles?.map(toTerrainType),
         burnsLike: doodadDescription.burnsLike?.map(toItemTypeOrGroup),
+        // Applies to living doodads.
         gather: doodadDescription.gather && {
           ...Object.keys(doodadDescription.gather).reduce(
             (accumulator: Record<string, unknown>, key) => {
-              const gather = (doodadDescription.gather as unknown) as Record<
-                string,
-                ItemType
-              >
+              const keyNum = parseInt(key, 10) || 0
+              const loots: ILootItem[] =
+                doodadDescription.gather?.[keyNum] || []
               // keys are plain strings not enums
-              accumulator[key] = toItemTypeOrGroup(gather[key])
+              accumulator[toGrowingStage(keyNum) || "keyerror"] = loots.map(
+                (loot) => ({
+                  ...loot,
+                  type: toItemTypeOrGroup(loot.type),
+                })
+              )
               return accumulator
             },
             {}
           ),
         },
         gatherSkillUse: toSkillType(doodadDescription.gatherSkillUse),
-        // lit: toItemTypeOrGroup(doodadDescription.lit),
-        // onBurn: doodadDescription.onBurn?.map(toItemTypeOrGroup),
-        // onUse:
-        //   doodadDescription.onUse &&
-        //   Object.keys(doodadDescription.onUse).reduce(
-        //     (accumulator: Record<string, unknown>, actionType) => {
-        //       const actionEnum = (actionType as unknown) as number
-        //       accumulator[ActionType[actionEnum]] =
-        //         doodadDescription.onUse?.[actionEnum]
-        //       return accumulator
-        //     },
-        //     {}
-        //   ),
-        // placeDownType: toDoodadTypeOrGroup(doodadDescription.placeDownType),
-        // recipe: doodadDescription.recipe && {
-        //   ...doodadDescription.recipe,
-        //   components: doodadDescription.recipe.components.map((component) => {
-        //     return {
-        //       ...component,
-        //       type: toItemTypeOrGroup(component.type),
-        //     }
-        //   }),
-        //   skill: toSkillType(doodadDescription.recipe.skill),
-        // },
-        // requiredForDisassembly: doodadDescription.requiredForDisassembly?.map(
-        //   toItemTypeOrGroup
-        // ),
-        // returnOnUseAndDecay: doodadDescription.returnOnUseAndDecay && {
-        //   ...doodadDescription.returnOnUseAndDecay,
-        //   type: toItemTypeOrGroup(doodadDescription.returnOnUseAndDecay.type),
-        // },
-        // revert: toItemTypeOrGroup(doodadDescription.revert),
-        // skillUse: toSkillType(doodadDescription.skillUse),
-        // spawnableTiles: toTileGroup(doodadDescription.spawnableTiles),
-        // spawnOnBreak: toCreatureType(doodadDescription.spawnOnBreak),
-        // spawnOnDecay: toCreatureType(doodadDescription.spawnOnDecay),
-        // spawnOnMerchant: doodadDescription.spawnOnMerchant?.map(toBiomeType),
-        // tier: doodadDescription.tier && {
-        //   ...Object.keys(doodadDescription.tier).reduce(
-        //     (accumulator: Record<string, unknown>, itemTypeGroup) => {
-        //       const itemTypeGroupEnum = (itemTypeGroup as unknown) as number
-        //       accumulator[ItemTypeGroup[itemTypeGroupEnum]] =
-        //         doodadDescription.tier?.[itemTypeGroupEnum]
-        //       return accumulator
-        //     },
-        //     {}
-        //   ),
-        // },
-        // use: doodadDescription.use?.map(toActionType),
+        group: doodadDescription.group?.map(toDoodadTypeOrGroup),
+        harvest: doodadDescription.harvest && {
+          ...Object.keys(doodadDescription.harvest).reduce(
+            (accumulator: Record<string, unknown>, key) => {
+              const keyNum = parseInt(key, 10) || 0
+              const loots: ILootItem[] =
+                doodadDescription.harvest?.[keyNum] || []
+              // keys are plain strings not enums
+              accumulator[toGrowingStage(keyNum) || "keyerror"] = loots.map(
+                (loot) => ({
+                  ...loot,
+                  type: toItemTypeOrGroup(loot.type),
+                })
+              )
+              return accumulator
+            },
+            {}
+          ),
+        },
+        lit: toDoodadTypeOrGroup(doodadDescription.lit),
+        pickUp: doodadDescription.pickUp?.map(toItemTypeOrGroup),
+        repairItem: toItemTypeOrGroup(doodadDescription.repairItem),
+        revert: toDoodadTypeOrGroup(doodadDescription.revert),
+        spawnOnTerrain: doodadDescription.spawnOnTerrain?.map(toTerrainType),
+        leftOver: toDoodadTypeOrGroup(doodadDescription.leftOver),
       }
     }
   }
 
   logger.debug(
-    `itemDescriptions, humanized: ${JSON.stringify(
+    `doodadDescriptionsDump, humanized: ${JSON.stringify(
       doodadDescriptionsDictionary
     )}`
   )
@@ -139,7 +124,10 @@ export const doodadDescriptionsDump = (): void => {
  */
 export const itemDescriptionsDump = (): void => {
   // Deviate from the types to make things human readable.
-  const itemDescriptionsDictionary: Record<string, unknown> = {}
+  const itemDescriptionsDictionary: Record<
+    string,
+    { [Key in keyof IItemDescription]?: unknown }
+  > = {}
   for (const [itemTypeKey, itemDescription] of Object.entries(
     itemDescriptions
   )) {
